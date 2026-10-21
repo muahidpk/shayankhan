@@ -1,0 +1,636 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="Muhammad Shayan's personal portfolio. Learn about his education, computer skills, AI foundation learning, and contact details.">
+
+  <title>Muhammad Shayan | Computer Operator Portfolio</title>
+
+  <style>
+    :root {
+      --bg: #0b1220;
+      --panel: #121e31;
+      --panel-light: #1b2a41;
+      --text: #f4f7fb;
+      --muted: #b3c0d2;
+      --accent: #5eead4;
+      --border: #2b3a50;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 85px;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    a:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 4px;
+    }
+
+    .container {
+      width: min(1100px, 90%);
+      margin: auto;
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: #0b1220;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      min-height: 72px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-weight: 800;
+      font-size: 1.15rem;
+      white-space: nowrap;
+    }
+
+    .accent {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .hero {
+      padding: 85px 0;
+      background:
+        radial-gradient(ellipse at top left, #16354a, transparent 55%),
+        var(--bg);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      align-items: center;
+      gap: 55px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 6px 14px;
+      border: 1px solid #28665f;
+      border-radius: 30px;
+      background: #12332f;
+      color: var(--accent);
+      font-size: 0.88rem;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 6vw, 4.3rem);
+      line-height: 1.12;
+      letter-spacing: -1.5px;
+      margin-bottom: 22px;
+    }
+
+    .hero p {
+      max-width: 580px;
+      color: var(--muted);
+      margin-bottom: 28px;
+      font-size: 1.05rem;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      padding: 12px 19px;
+      border-radius: 8px;
+      font-weight: 700;
+      border: 1px solid var(--accent);
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #09221f;
+    }
+
+    .btn-primary:hover {
+      background: #99f6e4;
+    }
+
+    .btn-outline {
+      color: var(--text);
+    }
+
+    .btn-outline:hover {
+      background: var(--panel-light);
+    }
+
+    .photo-wrap {
+      width: min(340px, 100%);
+      aspect-ratio: 4 / 5;
+      justify-self: center;
+      padding: 7px;
+      border: 2px solid var(--accent);
+      border-radius: 22px;
+      background: var(--panel);
+      box-shadow: 0 15px 50px #0005;
+    }
+
+    .profile-photo {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 15px;
+      background: var(--panel-light);
+    }
+
+    section.content-section {
+      padding: 78px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      margin-bottom: 10px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--muted);
+      max-width: 650px;
+      margin: 0 auto 38px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      padding: 27px;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: #43847c;
+    }
+
+    .card-icon {
+      font-size: 1.9rem;
+      margin-bottom: 12px;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      font-size: 1.15rem;
+    }
+
+    .card p {
+      color: var(--muted);
+    }
+
+    .education-card {
+      max-width: 720px;
+      margin: auto;
+      border-left: 4px solid var(--accent);
+    }
+
+    .tags {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .tag {
+      padding: 9px 16px;
+      border: 1px solid var(--border);
+      background: var(--panel-light);
+      border-radius: 30px;
+    }
+
+    .contact-box {
+      max-width: 760px;
+      margin: auto;
+      padding: 32px;
+      text-align: center;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 17px;
+    }
+
+    .contact-box > p {
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    .contact-item {
+      padding: 15px;
+      margin-bottom: 13px;
+      border-radius: 9px;
+      background: var(--panel-light);
+      overflow-wrap: anywhere;
+    }
+
+    .contact-label {
+      display: block;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .contact-link:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 24px 0;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 760px) {
+      .nav-inner {
+        flex-direction: column;
+        padding: 14px 0;
+      }
+
+      .nav-links {
+        justify-content: center;
+        gap: 10px 16px;
+      }
+
+      .hero {
+        padding: 55px 0 65px;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 35px;
+      }
+
+      .photo-wrap {
+        grid-row: 1;
+        width: min(270px, 85%);
+      }
+
+      .hero p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .buttons {
+        justify-content: center;
+      }
+
+      .grid-2,
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+
+      section.content-section {
+        padding: 60px 0;
+      }
+
+      .contact-box {
+        padding: 23px 16px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <header class="navbar">
+    <nav class="container nav-inner" aria-label="Main navigation">
+      <a class="logo" href="#home">
+        Muhammad<span class="accent">Shayan.</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#courses">Courses</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+
+        <div>
+          <span class="badge">Student | Computer & AI Learner</span>
+
+          <h1>
+            Welcome!<br>
+            I'm <span class="accent">Muhammad Shayan</span>
+          </h1>
+
+          <p>
+            I am from Seni Gumbat, District Kohat, Pakistan.
+            I have a Matric qualification and have studied a
+            Basic Computer Course and an AI Foundation Course.
+            I am interested in computer technology and
+            continuing to develop my knowledge and skills.
+          </p>
+
+          <div class="buttons">
+            <a class="btn btn-primary" href="resume.pdf" download>
+              ↓ Download My Resume
+            </a>
+
+            <a class="btn btn-outline" href="#contact">
+              Contact Me →
+            </a>
+          </div>
+        </div>
+
+        <div class="photo-wrap">
+          <img
+            class="profile-photo"
+            src="profile.jpeg"
+            alt="Professional computer-operator style profile image"
+            width="340"
+            height="425"
+          >
+        </div>
+
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="content-section" id="about">
+      <div class="container">
+        <h2 class="section-title">
+          About <span class="accent">Me</span>
+        </h2>
+
+        <p class="section-subtitle">
+          Get to know my background and interests.
+        </p>
+
+        <div class="grid-2">
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">👨‍💻</div>
+            <h3>My Background</h3>
+            <p>
+              My name is Muhammad Shayan. I am from Seni Gumbat,
+              District Kohat, Khyber Pakhtunkhwa, Pakistan.
+              I am building my computer knowledge through
+              education and learning.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">🎯</div>
+            <h3>My Goal</h3>
+            <p>
+              I want to improve my computer skills, learn more
+              about artificial intelligence, and develop useful
+              technology skills for my future.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section class="content-section" id="education">
+      <div class="container">
+        <h2 class="section-title">
+          My <span class="accent">Education</span>
+        </h2>
+
+        <p class="section-subtitle">
+          My educational background.
+        </p>
+
+        <article class="card education-card">
+          <div class="card-icon" aria-hidden="true">🎓</div>
+          <h3>Matric</h3>
+          <p>
+            Qualification: Matric.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Courses -->
+    <section class="content-section" id="courses">
+      <div class="container">
+        <h2 class="section-title">
+          Courses & <span class="accent">Learning</span>
+        </h2>
+
+        <p class="section-subtitle">
+          Courses and subjects that are part of my learning journey.
+        </p>
+
+        <div class="grid-3">
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">💻</div>
+            <h3>Basic Computer Course</h3>
+            <p>
+              Foundational learning about computers and
+              everyday computer use.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">🤖</div>
+            <h3>AI Foundation Course</h3>
+            <p>
+              Introductory learning about artificial intelligence
+              and its uses in technology.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">📚</div>
+            <h3>Future Learning</h3>
+            <p>
+              Interested in developing more computer knowledge
+              and learning new digital tools.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interests -->
+    <section class="content-section" id="interests">
+      <div class="container">
+        <h2 class="section-title">
+          My <span class="accent">Interests</span>
+        </h2>
+
+        <p class="section-subtitle">
+          Areas I am interested in learning about.
+        </p>
+
+        <div class="tags">
+          <span class="tag">Computer Skills</span>
+          <span class="tag">Artificial Intelligence</span>
+          <span class="tag">Digital Technology</span>
+          <span class="tag">Office Computing</span>
+          <span class="tag">Continuous Learning</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="content-section" id="contact">
+      <div class="container">
+        <h2 class="section-title">
+          Contact <span class="accent">Me</span>
+        </h2>
+
+        <p class="section-subtitle">
+          Feel free to contact me using the details below.
+        </p>
+
+        <div class="contact-box">
+          <p>
+            Thank you for visiting my personal portfolio.
+          </p>
+
+          <div class="contact-item">
+            <span class="contact-label">Email Address</span>
+            <a
+              class="contact-link"
+              href="mailto:shayankhan171817@gmail.com"
+            >
+              shayankhan171817@gmail.com
+            </a>
+          </div>
+
+          <div class="contact-item">
+            <span class="contact-label">Mobile Number</span>
+            <a class="contact-link" href="tel:03315100681">
+              03315100681
+            </a>
+          </div>
+
+          <div class="contact-item">
+            <span class="contact-label">Location</span>
+            Seni Gumbat, District Kohat,
+            Khyber Pakhtunkhwa, Pakistan
+          </div>
+
+          <div class="buttons" style="justify-content: center; margin-top: 22px;">
+            <a
+              class="btn btn-primary"
+              href="mailto:shayankhan171817@gmail.com"
+            >
+              ✉ Send Me an Email
+            </a>
+
+            <a class="btn btn-outline" href="tel:03315100681">
+              ☎ Call Me
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>
+        © <span id="year">2026</span> Muhammad Shayan.
+        Personal Portfolio.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+
+</body>
+</html>
